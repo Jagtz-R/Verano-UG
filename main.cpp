@@ -1,6 +1,6 @@
 /*
  * Este archivo mantiene el loop principal lo mas simple posible. La logica
- * especifica vive en los managers: WiFi, MQTT, comandos y Serial.
+ * especifica esta en los managers: WiFi, MQTT, comandos y Serial.
  */
 
 #include <Arduino.h>

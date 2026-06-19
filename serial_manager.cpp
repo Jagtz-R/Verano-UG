@@ -76,7 +76,10 @@ void serialUpdate(RobotContext& context) {
     // Si el controlador no responde a tiempo, se genera un error local.
     if (context.state == RobotState::WAITING_SERIAL_RESPONSE &&
         millis() - context.serialSentAt >= SERIAL_RESPONSE_TIMEOUT_MS) {
+        Serial.println("\n=============================================");
+        Serial.println("ERROR");
         Serial.println("Timeout esperando respuesta serial");
+        Serial.println("=============================================");
         
         // Configuracion de respuesta de error.
         context.currentResponse = RobotResponse();
