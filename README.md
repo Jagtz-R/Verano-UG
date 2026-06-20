@@ -1,8 +1,10 @@
 # Verano-UG
 
+El presente repositorio contiene la base de la aplicación para el proyecto **"Control Remoto para un Robot Planar Serial de 2 GDL"**.
+
 El objetivo de este proyecto es servir como una base modular para controlar remotamente un robot planar serial de dos grados de libertad usando un ESP32 como intermediario entre una interfaz remota y el controlador físico del robot.
 
-El presente repositorio contiene la base de la aplicación para el proyecto **"Control Remoto para un Robot Planar Serial de 2 GDL"**.
+## Características Principales
 
 Este proyecto está desarrollado para la plataforma **ESP32** y comprende las siguientes funciones principales:
 
@@ -13,17 +15,19 @@ Este proyecto está desarrollado para la plataforma **ESP32** y comprende las si
 - Comunicación serial con el controlador del robot.
 - Publicación de respuestas hacia el servidor MQTT.
 
-La arquitectura del proyecto es la siguiente:
+## Arquitectura del Proyecto
+
+La arquitectura general del proyecto es la siguiente:
 
 <p align="center">
 <img width="405" height="362" alt="image" src="https://github.com/user-attachments/assets/3081ccf0-9337-4ef9-838e-9437106b9698" />
 </p>
 
-# Explicación General
+## Estructura del Código
 
-El código se divide de la siguiente manera:
+El código está organizado de forma modular para separar responsabilidades y facilitar futuras modificaciones.
 
-## Archivos Manager
+### Archivos Manager
 
 Los archivos tipo **manager** se encargan de controlar módulos específicos del sistema, por ejemplo: WiFi, MQTT, Serial y comandos.
 
@@ -36,7 +40,7 @@ Los managers principales son:
 - `command_manager`: interpreta los comandos recibidos por MQTT y actualiza el estado del sistema.
 - `serial_manager`: envía comandos al controlador del robot mediante Serial2 y recibe sus respuestas.
 
-## Archivos Robot
+### Archivos Robot
 
 Los archivos **Robot** definen las estructuras de datos y estados usados para representar el comportamiento del sistema.
 
@@ -46,7 +50,7 @@ Estos archivos no controlan directamente hardware ni comunicaciones, sino que si
 - `robot_response.h`: define los tipos de respuesta que puede generar el sistema, como `OK`, `ERROR`, `BUSY`, `READY` y `UNKNOWN`.
 - `robot_context.h`: contiene el estado global del robot y permite coordinar el flujo entre MQTT, comandos y comunicación serial.
 
-## Archivo Config
+### Archivo Config
 
 El archivo `config.h` concentra los parámetros principales de configuración del sistema.
 
@@ -61,7 +65,7 @@ En este archivo se definen:
 
 Esto permite modificar la configuración principal del proyecto desde un solo lugar.
 
-## Archivo Main
+### Archivo Main
 
 El archivo `main.cpp` es el punto de entrada del código.
 
@@ -82,7 +86,7 @@ Durante `loop()` se ejecutan las tareas principales:
 - Leer respuestas seriales.
 - Publicar respuestas por MQTT.
 
-# Flujo General del Sistema
+## Flujo General del Sistema
 
 El funcionamiento general del sistema es el siguiente:
 
@@ -97,11 +101,11 @@ El funcionamiento general del sistema es el siguiente:
 9. El ESP32 interpreta la respuesta serial.
 10. Finalmente, publica una respuesta en el topic MQTT de respuesta.
 
-# Máquina de Estados
+## Máquina de Estados
 
 El sistema utiliza una máquina de estados sencilla para coordinar el flujo entre MQTT y Serial.
 
-Los estados principales son:
+Los estados se encuentran en el archivo `robot_context.h` y son:
 
 - `IDLE`: el sistema está libre y puede recibir un nuevo comando.
 - `COMMAND_READY`: hay un comando MQTT válido listo para procesarse.
@@ -113,14 +117,15 @@ El flujo normal es:
 
 ```text
 IDLE -> COMMAND_READY -> SENDING_SERIAL -> WAITING_SERIAL_RESPONSE -> RESPONSE_READY -> IDLE
-````
-# Formato de Comandos MQTT
+```
+
+## Formato de Comandos MQTT
 
 Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
 
 Ejemplos de comandos válidos:
 
-## Movimiento
+### Movimiento
 
 ```json
 {
@@ -130,7 +135,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-## Home
+### Home
 
 ```json
 {
@@ -138,7 +143,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-## Stop
+### Stop
 
 ```json
 {
@@ -146,7 +151,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-## Status
+### Status
 
 ```json
 {
@@ -154,7 +159,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-# Formato de Comunicación Serial
+## Formato de Comunicación Serial
 
 El ESP32 se comunica con el controlador del robot mediante `Serial2`.
 
@@ -184,7 +189,7 @@ ACK:READY
 
 Cada respuesta debe terminar con salto de línea `\n`, ya que el ESP32 procesa las respuestas por línea completa.
 
-# Respuestas MQTT
+## Respuestas MQTT
 
 Las respuestas se publican en el topic definido en `MQTT_TOPIC_RESPONSE`.
 
@@ -209,7 +214,7 @@ Ejemplos:
 }
 ```
 
-# Timeout Serial
+## Timeout Serial
 
 Después de enviar un comando por Serial2, el ESP32 espera una respuesta del controlador del robot.
 
@@ -230,8 +235,10 @@ el sistema genera una respuesta de error:
 
 Esto evita que el ESP32 quede bloqueado indefinidamente esperando una respuesta.
 
-# To do
+## To Do
 
-Aún falta el desarrollo de la aplicación y la modificación del controlador del robot para que responda a los comandos anteriormente definidos. Si se requiere agregar comandos o respuestas solo hay necesidad de modificar los archivos `robot` para incluir los nuevos comandos y realizar su correcta implementación. 
+Aún falta el desarrollo de la aplicación y la modificación del controlador del robot para que responda a los comandos anteriormente definidos.
 
-Finalmente el proyecto fue desarrollado para que todo fuera modular, es decir, que fuera fácil de modificar e implementar. Sin más que decir, esto ha sido la descripción general del proyecto.
+Si se requiere agregar comandos o respuestas, solo es necesario modificar los archivos `robot` para incluir los nuevos comandos y realizar su correcta implementación.
+
+El proyecto fue desarrollado de forma modular para que sea fácil de modificar, ampliar e implementar en futuras etapas.
