@@ -14,6 +14,7 @@ Este proyecto está desarrollado para la plataforma **ESP32** en colaboración c
 - Procesamiento de comandos para el robot.
 - Comunicación serial con el controlador del robot.
 - Publicación de respuestas hacia el servidor MQTT.
+- Aplicación para controlar al robot.
 
 ## Arquitectura del Proyecto
 
@@ -22,7 +23,5 @@ La arquitectura general del proyecto es la siguiente:
 <p align="center">
 <img width="405" height="362" alt="image" src="https://github.com/user-attachments/assets/3081ccf0-9337-4ef9-838e-9437106b9698" />
 </p>
-
-Si se requiere agregar comandos o respuestas, solo es necesario modificar los archivos `robot` para incluir los nuevos comandos y realizar su correcta implementación.
 
 El proyecto fue desarrollado de forma modular para que sea fácil de modificar, ampliar e implementar futuras etapas.
