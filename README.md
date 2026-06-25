@@ -159,6 +159,14 @@ Ejemplos de comandos válidos:
 }
 ```
 
+### Calibrate
+
+```json
+{
+  "command": "calibrate"
+}
+```
+
 ## Formato de Comunicación Serial
 
 El ESP32 se comunica con el controlador del robot mediante `Serial2`.
