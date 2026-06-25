@@ -1,4 +1,4 @@
-## Estructura del Código
+# Estructura del Código
 
 El código está organizado de forma modular para separar responsabilidades y facilitar futuras modificaciones.
 
