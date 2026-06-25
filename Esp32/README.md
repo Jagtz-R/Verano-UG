@@ -17,13 +17,15 @@ Los managers principales son:
 
 ### Archivos Robot
 
-Los archivos **Robot** definen las estructuras de datos y estados usados para representar el comportamiento del sistema. Si se quiere incluir un nuevo comando o respuesta se necesitan incluir aquí.
+Los archivos **Robot** definen las estructuras de datos y estados usados para representar el comportamiento del sistema.
 
 Estos archivos no controlan directamente hardware ni comunicaciones, sino que sirven como modelos compartidos entre los managers.
 
 - `robot_command.h`: define los tipos de comandos que puede recibir el robot, como `MOVE`, `HOME`, `STOP` y `STATUS`.
 - `robot_response.h`: define los tipos de respuesta que puede generar el sistema, como `OK`, `ERROR`, `BUSY`, `READY` y `UNKNOWN`.
 - `robot_context.h`: contiene el estado global del robot y permite coordinar el flujo entre MQTT, comandos y comunicación serial.
+
+Si se requiere agregar comandos o respuestas, solo es necesario incluir los nuevos comandos en los archivos `robot` y realizar su correcta implementación.
 
 ### Archivo Config
 
