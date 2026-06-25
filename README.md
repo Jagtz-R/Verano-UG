@@ -25,4 +25,4 @@ La arquitectura general del proyecto es la siguiente:
 
 Si se requiere agregar comandos o respuestas, solo es necesario modificar los archivos `robot` para incluir los nuevos comandos y realizar su correcta implementación.
 
-El proyecto fue desarrollado de forma modular para que sea fácil de modificar, ampliar e implementar en futuras etapas.
+El proyecto fue desarrollado de forma modular para que sea fácil de modificar, ampliar e implementar futuras etapas.
