@@ -2,7 +2,7 @@
 
 Controlador para un robot planar RR de 2 grados de libertad utilizando Arduino y motores paso a paso.
 
-El sistema recibe comandos desde una ESP32 mediante comunicación serial y ejecuta movimientos articulares absolutos. Además, cuenta con un proceso de calibración automática usando potenciómetros para establecer la posición cero de cada articulación.
+El sistema recibe comandos desde una ESP32 mediante comunicación serial y ejecuta movimientos articulares. Además, cuenta con un proceso de calibración automática usando potenciómetros para establecer la posición cero de cada articulación.
 
 ## Características
 
