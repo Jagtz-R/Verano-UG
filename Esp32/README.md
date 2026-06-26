@@ -102,7 +102,7 @@ Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
 
 Ejemplos de comandos válidos:
 
-### Movimiento
+#### Movimiento
 
 ```json
 {
@@ -112,7 +112,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-### Home
+#### Home
 
 ```json
 {
@@ -120,7 +120,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-### Stop
+#### Stop
 
 ```json
 {
@@ -128,7 +128,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-### Status
+#### Status
 
 ```json
 {
@@ -136,7 +136,7 @@ Ejemplos de comandos válidos:
 }
 ```
 
-### Calibrate
+#### Calibrate
 
 ```json
 {
