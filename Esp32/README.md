@@ -100,7 +100,7 @@ IDLE -> COMMAND_READY -> SENDING_SERIAL -> WAITING_SERIAL_RESPONSE -> RESPONSE_R
 
 Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
 
-Ejemplos de comandos válidos:
+### Ejemplos de comandos válidos:
 
 #### Movimiento
 
