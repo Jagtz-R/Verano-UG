@@ -2,7 +2,7 @@
 
 El código está organizado de forma modular para separar responsabilidades y facilitar futuras modificaciones.
 
-### Archivos Manager
+## Archivos Manager
 
 Los archivos tipo **manager** se encargan de controlar módulos específicos del sistema, por ejemplo: WiFi, MQTT, Serial y comandos.
 
@@ -15,7 +15,7 @@ Los managers principales son:
 - `command_manager`: interpreta los comandos recibidos por MQTT y actualiza el estado del sistema.
 - `serial_manager`: envía comandos al controlador del robot mediante Serial2 y recibe sus respuestas.
 
-### Archivos Robot
+## Archivos Robot
 
 Los archivos **Robot** definen las estructuras de datos y estados usados para representar el comportamiento del sistema.
 
@@ -27,7 +27,7 @@ Estos archivos no controlan directamente hardware ni comunicaciones, sino que si
 
 Si se requiere agregar comandos o respuestas, solo es necesario incluir los nuevos comandos en los archivos `robot` y realizar su correcta implementación.
 
-### Archivo Config
+## Archivo Config
 
 El archivo `config.h` concentra los parámetros principales de configuración del sistema.
 
@@ -42,7 +42,7 @@ En este archivo se definen:
 
 Esto permite modificar la configuración principal del proyecto desde un solo lugar.
 
-### Archivo Main
+## Archivo Main
 
 El archivo `main.cpp` es el punto de entrada del código.
 
