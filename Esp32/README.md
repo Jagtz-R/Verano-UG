@@ -102,8 +102,6 @@ Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
 
 ### Ejemplos de comandos válidos:
 
----
-
 #### Movimiento
 
 ```json
