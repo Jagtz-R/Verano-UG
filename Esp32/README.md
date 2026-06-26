@@ -102,6 +102,8 @@ Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
 
 ### Ejemplos de comandos válidos:
 
+---
+
 #### Movimiento
 
 ```json
@@ -112,6 +114,8 @@ Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
 }
 ```
 
+---
+
 #### Home
 
 ```json
@@ -119,6 +123,8 @@ Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
   "command": "home"
 }
 ```
+
+---
 
 #### Stop
 
@@ -128,6 +134,8 @@ Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
 }
 ```
 
+---
+
 #### Status
 
 ```json
@@ -135,6 +143,8 @@ Los comandos se envían al topic definido en `MQTT_TOPIC_CONTROL`.
   "command": "status"
 }
 ```
+
+---
 
 #### Calibrate
 
